@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  title: buddy move safely into the minefield :)
+  description: This the API to play minesweepr
+  contact:
+    email: undeadgrishnackh@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/undeadgrishnackh74/minesweeper/1.0.0
+  description: SwaggerHub API Auto Mocking
+paths:
+  /play:
+    get:
+      summary: return the board
+      description: |
+        Get the minefiled board.
+      operationId: getBoard
+      parameters:
+      - name: gameId
+        in: query
+        description: pass the gameID search string for looking up the correct game
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: this is the board requested
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Game'
+        "400":
+          description: the game requested doesn't exists!
+    post:
+      summary: Move your feet into the minefield, and pray...
+      description: move on cell(x,y)
+      operationId: move
+      requestBody:
+        description: Inventory item to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveTo'
+      responses:
+        "201":
+          description: you moved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Game'
+        "400":
+          description: invalid input, object invalid
+components:
+  schemas:
+    Game:
+      required:
+      - board
+      - gameId
+      - status
+      type: object
+      properties:
+        gameId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        status:
+          type: string
+          example: '{"safeStep":{"value":"WaitingNewMove"},"boomStep":{"value":"GameOver"}}'
+        board:
+          $ref: '#/components/schemas/Board'
+    Board:
+      type: array
+      items:
+        type: array
+        items:
+          type: string
+          example: '{"safeStep":[[0,0,0],[1,0,0],[1,1,0]],"boomStep":[[0,0,0],[0,1,0],[1,0,0]]}'
+    MoveTo:
+      required:
+      - gameId
+      - x
+      - "y"
+      type: object
+      properties:
+        gameId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        x:
+          type: integer
+          example: 1
+        y:
+          type: integer
+          example: 1

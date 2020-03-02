@@ -1,0 +1,1 @@
+newman run https://www.getpostman.com/collections/e018467c7934e97ae78f
