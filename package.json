@@ -1,0 +1,29 @@
+{
+  "name": "game-minesweeper",
+  "version": "1.0.0",
+  "description": "Mine Sweeper game - kata exercise",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/undeadgrishnackh/minesweeper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/undeadgrishnackh/minesweeper/issues"
+  },
+  "homepage": "https://github.com/undeadgrishnackh/minesweeper#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "dependencies": {
+    "mathjs": "^6.6.1"
+  }
+}
