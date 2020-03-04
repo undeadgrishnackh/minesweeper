@@ -2,9 +2,10 @@
   "name": "game-minesweeper",
   "version": "1.0.0",
   "description": "Mine Sweeper game - kata exercise",
-  "main": "index.js",
+  "main": "src/minesweeper.API.js",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "start": "node_modules/.bin/babel-node src/minesweeper.API.js"
   },
   "scripts": {
     "test": "jest"
@@ -21,9 +22,29 @@
   },
   "homepage": "https://github.com/undeadgrishnackh/minesweeper#readme",
   "devDependencies": {
-    "jest": "^25.1.0"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "prettier": "1.19.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.8.3",
+    "core-js": "^3.6.4",
+    "express": "^4.17.1",
     "mathjs": "^6.6.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "eslint src/*.js --fix-dry-run",
+    ]
   }
 }
