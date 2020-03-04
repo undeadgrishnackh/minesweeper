@@ -8,4 +8,4 @@ const Scenario_GameOver =  [
   }
 ];
 
-export default Scenario_GameOver;
+module.exports.Scenario_GameOver = Scenario_GameOver;

@@ -4,11 +4,11 @@
   "description": "Mine Sweeper game - kata exercise",
   "main": "src/minesweeper.API.js",
   "directories": {
-    "test": "test",
-    "start": "node_modules/.bin/babel-node src/minesweeper.API.js"
+    "test": "test"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node_modules/.bin/babel-node src/minesweeper.API.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,9 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.6",
+    "@babel/node": "^7.8.4",
     "@babel/preset-env": "^7.8.6",
+    "@babel/register": "^7.8.6",
     "jest": "^25.1.0"
   },
   "dependencies": {
