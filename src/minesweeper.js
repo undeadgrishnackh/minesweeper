@@ -7,9 +7,14 @@ class Minesweeper {
     this.gameStatus = new GameStatus();
   }
 
+  getBoardASCII () {
+    return this.board.getBoardASCII();
+  }
+
   getBoard () {
     return this.board.getBoard();
   }
+
 
   tick (x, y) {
     this.board.uncover(x,y);

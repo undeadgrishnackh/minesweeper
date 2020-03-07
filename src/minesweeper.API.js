@@ -1,19 +1,49 @@
 import express from 'express';
-import game from '../test/mocks/Scenario.GameOver';
+import bodyParser from 'body-parser';
+let { Minesweeper } = require('../src/minesweeper');
 
 // Set up the express app
 const app = express();
+// Setup to parse the parameters
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
-// get the MOCK scenario
-  app.get('/minesweeper/1.0.0/play', (req, res) => {
+const minesweeperAPI_GET = (req, res) => {
+  let minesweeper = new Minesweeper();
+  let result = minesweeper.getBoard();
   res.status(200).send({
-    success: 'true',
-    message: 'Scenario retrieved successfully',
-    game: game
-  })
-});
-const PORT = 5000;
+    gameId: req.headers.gameid,
+    status: minesweeper.getGameStatus(),
+    board: minesweeper.getBoard()
+  });
+};
 
-app.listen(PORT, () => {
-  console.log(`server running on port ${PORT}`)
+const minesweeperAPI_POST = (req, res) => {
+  let minesweeper = new Minesweeper();
+  minesweeper.tick(req.body.x, req.body.y);
+  res.status(201).send({
+    gameId: req.body.gameId,
+    status: minesweeper.getGameStatus(),
+    board: minesweeper.getBoard()
+  });
+};
+
+const PORT = 5000;
+const HOST = '0.0.0.0';
+app.listen(PORT, HOST, () => {
+  console.log(`server running on port http://${HOST}:${PORT}`)
 });
+
+
+
+app.get('/api/gameportal/minesweeper/1.0.0/play', (req, res) => {
+    minesweeperAPI_GET(req, res);
+});
+
+app.post('/api/gameportal/minesweeper/1.0.0/play', (req, res) => {
+  minesweeperAPI_POST(req, res);
+});
+
+module.exports = app;

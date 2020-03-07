@@ -1,0 +1,1 @@
+newman run "https://www.getpostman.com/collections/aeb4b1d959e8ce49d85b"
