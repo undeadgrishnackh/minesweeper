@@ -9,7 +9,11 @@
   "scripts": {
     "test": "jest",
     "test:api": "npx jest -c API/config/jest.newman.js",
-    "start": "node_modules/.bin/babel-node src/minesweeper.API.js"
+    "test:api_build_and_test": "npm run docker_stop || npm run docker_build && npm run docker_run && npm run test:api",
+    "start": "node_modules/.bin/babel-node src/minesweeper.API.js",
+    "docker_build": "docker build -t undeadgrishnackh/minesweeper .",
+    "docker_run": "docker run -p 5000:5000 -d undeadgrishnackh/minesweeper",
+    "docker_stop": "docker stop `docker ps | grep -i undeadgrishnackh/minesweeper | awk '{print $1}'`"
   },
   "repository": {
     "type": "git",
