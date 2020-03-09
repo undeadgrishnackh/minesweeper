@@ -1,7 +1,7 @@
 let { Minesweeper } = require('../src/minesweeper');
 
 describe('Game Over Scenario 3x3', () => {
-  let minesweeper = new Minesweeper();
+  let minesweeper = new Minesweeper('MockGameOver3x3');
 
   it('Expect the board is created, empty and properly rendered in ASCII.', () => {
     expect(minesweeper.getBoardASCII()).toEqual('' +

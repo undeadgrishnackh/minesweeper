@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 const minesweeperAPI_GET = (req, res) => {
-  let minesweeper = new Minesweeper();
-  let result = minesweeper.getBoard();
+  let minesweeper = new Minesweeper(req.headers.gameid);
+  console.log("GET: gameid = " + req.headers.gameid + " -- Board = " + minesweeper.getBoard());
   res.status(200).send({
     gameId: req.headers.gameid,
     status: minesweeper.getGameStatus(),
@@ -21,8 +21,10 @@ const minesweeperAPI_GET = (req, res) => {
 };
 
 const minesweeperAPI_POST = (req, res) => {
-  let minesweeper = new Minesweeper();
+  let minesweeper = new Minesweeper(req.body.gameId);
+  console.log("POST: gameid = " + req.body.gameId + " -- Board = " + minesweeper.getBoard());
   minesweeper.tick(req.body.x, req.body.y);
+  console.log("POST: gameid = " + req.body.gameId + " -- Tick("+ req.body.x + "," + req.body.y + ") -- Board = " + minesweeper.getBoard());
   res.status(201).send({
     gameId: req.body.gameId,
     status: minesweeper.getGameStatus(),

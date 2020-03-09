@@ -2,8 +2,8 @@ let { Board } = require('./board');
 let { GameStatus} = require('./gamestatus');
 
 class Minesweeper {
-  constructor() {
-    this.board = new Board();
+  constructor(gameId) {
+    this.board = new Board(gameId);
     this.gameStatus = new GameStatus();
   }
 

@@ -1,11 +1,18 @@
 const { matrix } = require('mathjs');
+import GameMocks from '../mocks/Scenario.Mock';
+
+const gamesMocks = GameMocks.GameMocks;
 
 class Board {
-  constructor() {
-    this.board = matrix([["X", "X", "X"],["X", "X", "X"],["X", "X", "X"]]);
-
-    this.mines = matrix([[0, 0, 0],[0, 1, 0],[0, 0, 0]]);
-
+  constructor(gameId) {
+    if (gameId !== '' && gameId.substr(0,4) === 'Mock') {
+      this.board = matrix(gamesMocks[gameId].board).clone(); // To avoid the by reference behavior is necessary cloning the MOCK or the test rerun will be broken
+      this.mines  = matrix(gamesMocks[gameId].mines).clone();
+    } else {
+      //TODO: hte board for the moment is hardcoded waiting the first US with a real game not a MOCK!
+      this.board = matrix([[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]);
+      this.mines = matrix([[null, null, null], [null, null, null], [null, null, null]]);
+    }
   }
 
   getBoardASCII () {
