@@ -10,6 +10,7 @@
     "test": "jest",
     "test:api": "npx jest -c API/config/jest.newman.js",
     "test:api_build_and_test": "npm run docker_stop || npm run docker_build && npm run docker_run && npm run test:api",
+    "watch:CI": "watch -p \"**/*.js\" -c \"npm run test:api_build_and_test\"",
     "start": "node_modules/.bin/babel-node src/minesweeper.API.js",
     "docker_build": "docker build -t undeadgrishnackh/minesweeper .",
     "docker_run": "docker run -p 5000:5000 -d undeadgrishnackh/minesweeper",
@@ -34,7 +35,8 @@
     "@babel/register": "^7.8.6",
     "jest": "^25.1.0",
     "jest-runner-newman": "^1.0.5",
-    "newman": "^4.6.0"
+    "newman": "^4.6.0",
+    "watch-cli": "^0.2.3"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.3",
