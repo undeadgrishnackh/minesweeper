@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "fix-security-audit": "npx npm-force-resolutions",
     "test": "jest",
     "test:api": "npx jest -c API/config/jest.newman.js",
     "test:api_build_and_test": "npm run docker_stop || npm run docker_build && npm run docker_run && npm run test:api",
@@ -29,20 +30,28 @@
   "homepage": "https://github.com/undeadgrishnackh/minesweeper#readme",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.6",
-    "@babel/node": "^7.8.4",
-    "@babel/preset-env": "^7.8.6",
-    "@babel/register": "^7.8.6",
-    "jest": "^25.1.0",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "jest": "^25.2.7",
     "jest-runner-newman": "^1.0.5",
-    "newman": "^4.6.0",
-    "watch-cli": "^0.2.3"
+    "lodash": "^4.17.15",
+    "minimatch": ">=3.0.2",
+    "minimist": ">=0.2.1",
+    "newman": "^4.6.1",
+    "watch-cli": "~0.2.3"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.8.3",
+    "@babel/polyfill": "^7.8.7",
+    "body-parser": "^1.19.0",
     "core-js": "^3.6.4",
     "express": "^4.17.1",
-    "mathjs": "^6.6.1",
-    "body-parser": "^1.19.0"
+    "mathjs": "^6.6.2"
+  },
+  "resolutions": {
+    "lodash": "4.17.15",
+    "minimist": "0.2.1",
+    "minimatch": "3.0.2"
   }
 }
