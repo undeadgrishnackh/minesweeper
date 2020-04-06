@@ -3,8 +3,8 @@ let { GameStatus} = require('./gamestatus');
 
 class Minesweeper {
   constructor(gameId) {
-    this.board = new Board(gameId);
     this.gameStatus = new GameStatus();
+    this.board = new Board(gameId, this.gameStatus);
   }
 
   getBoardASCII () {
@@ -15,20 +15,18 @@ class Minesweeper {
     return this.board.getBoard();
   }
 
-
   tick (x, y) {
     this.board.uncover(x,y);
-
-    if( this.board.BombFounded(x,y) === "BOMB"){
-      this.gameStatus.gameOver();
-      return('');
-    }
-
+    if (this.board.isHereABomb(x,y)) return('GameOver');
     this.board.checkNumberOfBombsAround(x,y);
   }
 
   getGameStatus(){
     return this.gameStatus.getStatus();
+  }
+
+  getHTTPGameStatus(){
+    return this.gameStatus.getHTTPCode();
   }
 }
 

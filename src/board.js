@@ -4,7 +4,8 @@ import GameMocks from '../mocks/Scenario.Mock';
 const gamesMocks = GameMocks.GameMocks;
 
 class Board {
-  constructor(gameId) {
+  constructor(gameId, gameStatus) {
+    this.gameStatus = gameStatus;
     if (gameId !== '' && gameId.substr(0,4) === 'Mock') {
       this.board = matrix(gamesMocks[gameId].board).clone(); // To avoid the by reference behavior is necessary cloning the MOCK or the test rerun will be broken
       this.mines  = matrix(gamesMocks[gameId].mines).clone();
@@ -31,14 +32,16 @@ class Board {
     }
   }
 
-  BombFounded(x, y) {
+  isHereABomb(x, y) {
     if (this.mines.get([x, y]) === 1) {
       this.board.set([x, y],'B');
-      return "BOMB";
+      this.gameStatus.setGameIsOver();
+      return true;
     }
-    return "SAFE";
+    return false;
   }
 
+  //TODO: refactor it with a clean code function and inject more UT for the edge cases on the borders
   checkNumberOfBombsAround(x, y) {
     let bombsAround = 0;
     if (this.mines.get([x-1,y-1]) === 1) bombsAround ++;
