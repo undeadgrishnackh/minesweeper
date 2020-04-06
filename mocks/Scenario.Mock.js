@@ -8,6 +8,13 @@ const GameMocks =
         description: "Mock Scenario developed for Game Over Test Suite with a click in (1,1).",
         board: [["X", "X", "X"],["X", "X", "X"],["X", "X", "X"]],
         mines: [[0, 0, 0],[0, 1, 0],[0, 0, 0]]
+      },
+    MockSafeMove3x3:
+      {
+        title: "Safe Move 3x3",
+        description: "Mock Scenario developed for Safe Move Test Suite with a click in (1,1).",
+        board: [["X", "X", "X"],["X", "X", "X"],["X", "X", "X"]],
+        mines: [[0, 0, 0],[0, 0, 0],[0, 1, 0]]
       }
   }
 ;

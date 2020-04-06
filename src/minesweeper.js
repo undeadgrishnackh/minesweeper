@@ -18,9 +18,13 @@ class Minesweeper {
 
   tick (x, y) {
     this.board.uncover(x,y);
+
     if( this.board.BombFounded(x,y) === "BOMB"){
       this.gameStatus.gameOver();
+      return('');
     }
+
+    this.board.checkNumberOfBombsAround(x,y);
   }
 
   getGameStatus(){

@@ -22,10 +22,12 @@ const minesweeperAPI_GET = (req, res) => {
 
 const minesweeperAPI_POST = (req, res) => {
   let minesweeper = new Minesweeper(req.body.gameId);
+  let gameStatus  = 200;
   console.log("POST: gameid = " + req.body.gameId + " -- Board = " + minesweeper.getBoard());
   minesweeper.tick(req.body.x, req.body.y);
   console.log("POST: gameid = " + req.body.gameId + " -- Tick("+ req.body.x + "," + req.body.y + ") -- Board = " + minesweeper.getBoard());
-  res.status(201).send({
+  if (minesweeper.getGameStatus() === 'GameOver') gameStatus = 201;
+  res.status(gameStatus).send({
     gameId: req.body.gameId,
     status: minesweeper.getGameStatus(),
     board: minesweeper.getBoard()

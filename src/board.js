@@ -38,6 +38,20 @@ class Board {
     }
     return "SAFE";
   }
+
+  checkNumberOfBombsAround(x, y) {
+    let bombsAround = 0;
+    if (this.mines.get([x-1,y-1]) === 1) bombsAround ++;
+    if (this.mines.get([x-1,y]) === 1) bombsAround ++;
+    if (this.mines.get([x-1,y+1]) === 1) bombsAround ++;
+    if (this.mines.get([x,y-1]) === 1) bombsAround ++;
+    if (this.mines.get([x,y]) === 1) bombsAround ++;
+    if (this.mines.get([x,y+1]) === 1) bombsAround ++;
+    if (this.mines.get([x+1,y-1]) === 1) bombsAround ++;
+    if (this.mines.get([x+1,y]) === 1) bombsAround ++;
+    if (this.mines.get([x+1,y+1]) === 1) bombsAround ++;
+    if (bombsAround > 0) this.board.set([x,y], bombsAround.toString());
+  }
 }
 
 module.exports.Board = Board;
