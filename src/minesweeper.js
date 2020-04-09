@@ -15,10 +15,10 @@ class Minesweeper {
     return this.board.getBoard();
   }
 
-  tick (x, y) {
-    this.board.uncover(x,y);
-    if (this.board.isHereABomb(x,y)) return('GameOver');
-    this.board.checkNumberOfBombsAround(x,y);
+  tick (row, col) {
+    this.board.uncover(row,col);
+    if (this.board.isHereABomb(row,col)) return('GameOver');
+    this.board.checkNumberOfBombsAround(row,col);
   }
 
   getGameStatus(){

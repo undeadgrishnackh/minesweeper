@@ -17,43 +17,54 @@ class Board {
   }
 
   getBoardASCII () {
-    return "|" + this.board.get([0, 0]) + "|" + this.board.get([0, 1]) + "|" + this.board.get([0, 2]) + "|\n" +
+    return "" +
+      "|" + this.board.get([0, 0]) + "|" + this.board.get([0, 1]) + "|" + this.board.get([0, 2]) + "|\n" +
       "|" + this.board.get([1, 0]) + "|" + this.board.get([1, 1]) + "|" + this.board.get([1, 2]) + "|\n" +
-      "|" +this.board.get([2, 0]) + "|" + this.board.get([2, 1]) + "|" + this.board.get([2, 2]) + "|\n";
+      "|" + this.board.get([2, 0]) + "|" + this.board.get([2, 1]) + "|" + this.board.get([2, 2]) + "|\n";
   }
 
   getBoard () {
     return this.board.valueOf();
   }
 
-  uncover(x, y) {
-    if (this.board.get([x, y]) === 'X') {
-      this.board.set([x, y],' ');
+  uncover(row, col) {
+    if (this.board.get([row, col]) === 'X') {
+      this.board.set([row, col],' ');
     }
   }
 
-  isHereABomb(x, y) {
-    if (this.mines.get([x, y]) === 1) {
-      this.board.set([x, y],'B');
+  isHereABomb(row, col) {
+    if (this.mines.get([row, col]) === 1) {
+      this.board.set([row, col],'B');
       this.gameStatus.setGameIsOver();
       return true;
     }
     return false;
   }
 
-  //TODO: refactor it with a clean code function and inject more UT for the edge cases on the borders
-  checkNumberOfBombsAround(x, y) {
+  checkNumberOfBombsAround(row, col) {
     let bombsAround = 0;
-    if (this.mines.get([x-1,y-1]) === 1) bombsAround ++;
-    if (this.mines.get([x-1,y]) === 1) bombsAround ++;
-    if (this.mines.get([x-1,y+1]) === 1) bombsAround ++;
-    if (this.mines.get([x,y-1]) === 1) bombsAround ++;
-    if (this.mines.get([x,y]) === 1) bombsAround ++;
-    if (this.mines.get([x,y+1]) === 1) bombsAround ++;
-    if (this.mines.get([x+1,y-1]) === 1) bombsAround ++;
-    if (this.mines.get([x+1,y]) === 1) bombsAround ++;
-    if (this.mines.get([x+1,y+1]) === 1) bombsAround ++;
-    if (bombsAround > 0) this.board.set([x,y], bombsAround.toString());
+    if (this.isThereABombInTheTile([row-1,col-1])) bombsAround ++;
+    if (this.isThereABombInTheTile([row-1,col])) bombsAround ++;
+    if (this.isThereABombInTheTile([row-1,col+1])) bombsAround ++;
+    if (this.isThereABombInTheTile([row,col-1])) bombsAround ++;
+    if (this.isThereABombInTheTile([row,col])) bombsAround ++;
+    if (this.isThereABombInTheTile([row,col+1])) bombsAround ++;
+    if (this.isThereABombInTheTile([row+1,col-1])) bombsAround ++;
+    if (this.isThereABombInTheTile([row+1,col])) bombsAround ++;
+    if (this.isThereABombInTheTile([row+1,col+1])) bombsAround ++;
+    if (bombsAround > 0) this.board.set([row,col], bombsAround.toString());
+  }
+
+  isThereABombInTheTile([row, col]) {
+    if (this.isTheTileOutOfTheBoard(row, col)) return false;
+    return this.mines.get([row, col]) === 1;
+  }
+
+  isTheTileOutOfTheBoard(row, col) {
+    let numberOfRows    = this.mines.size()[0];
+    let numberOfColumns = this.mines.size()[1];
+    return !(row >= 0 && row < numberOfRows && col >= 0 && col < numberOfColumns);
   }
 }
 

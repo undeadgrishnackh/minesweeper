@@ -59,4 +59,29 @@ describe('Safe Move Scenario 3x3', () => {
       ]);
   });
 
+  it('Expect a Wait For The Next Move after the user ticks on cell 1;0', () => {
+    minesweeper.tick(1,0);
+    expect(minesweeper.getGameStatus()).toEqual('WaitForTheNextMove');
+  });
+  it('Expect the cell 0,1 contains 1 bomb around', () => {
+    expect(minesweeper.getBoard()).toEqual(
+      [
+        ["X", "X", "X"],
+        ["1", "1", "X"],
+        ["X", "X", "X"]
+      ]);
+  });
+
+  it('Expect a Wait For The Next Move after the user ticks on cell 2;2', () => {
+    minesweeper.tick(2,2);
+    expect(minesweeper.getGameStatus()).toEqual('WaitForTheNextMove');
+  });
+  it('Expect the cell 2,2 contains 1 bomb around', () => {
+    expect(minesweeper.getBoard()).toEqual(
+      [
+        ["X", "X", "X"],
+        ["1", "1", "X"],
+        ["X", "X", "1"]
+      ]);
+  });
 });

@@ -23,8 +23,8 @@ const minesweeperAPI_GET = (req, res) => {
 const minesweeperAPI_POST = (req, res) => {
   let minesweeper = new Minesweeper(req.body.gameId);
   console.log("POST: gameid = " + req.body.gameId + " -- Board = " + minesweeper.getBoard());
-  minesweeper.tick(req.body.x, req.body.y);
-  console.log("POST: gameid = " + req.body.gameId + " -- Tick("+ req.body.x + "," + req.body.y + ") -- Board = " + minesweeper.getBoard());
+  minesweeper.tick(req.body.row, req.body.col);
+  console.log("POST: gameid = " + req.body.gameId + " -- Tick("+ req.body.row + "," + req.body.col + ") -- Board = " + minesweeper.getBoard());
   res.status(minesweeper.getHTTPGameStatus()).send({
     gameId: req.body.gameId,
     status: minesweeper.getGameStatus(),
