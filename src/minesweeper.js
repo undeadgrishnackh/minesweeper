@@ -3,12 +3,17 @@ let { GameStatus} = require('./gamestatus');
 
 class Minesweeper {
   constructor(gameId) {
+    this.gameId = gameId;
     this.gameStatus = new GameStatus();
     this.board = new Board(gameId, this.gameStatus);
   }
 
   getBoardASCII () {
     return this.board.getBoardASCII();
+  }
+
+  getMinesASCII(){
+    return this.board.getMinesASCII();
   }
 
   getBoard () {
@@ -27,6 +32,10 @@ class Minesweeper {
 
   getHTTPGameStatus(){
     return this.gameStatus.getHTTPCode();
+  }
+
+  getGameId(){
+    return this.gameId;
   }
 }
 

@@ -16,11 +16,18 @@ class Board {
     }
   }
 
-  getBoardASCII () {
+  getBoardASCII() {
     return "" +
       "|" + this.board.get([0, 0]) + "|" + this.board.get([0, 1]) + "|" + this.board.get([0, 2]) + "|\n" +
       "|" + this.board.get([1, 0]) + "|" + this.board.get([1, 1]) + "|" + this.board.get([1, 2]) + "|\n" +
       "|" + this.board.get([2, 0]) + "|" + this.board.get([2, 1]) + "|" + this.board.get([2, 2]) + "|\n";
+  }
+
+  getMinesASCII() {
+    return "" +
+      "|" + this.mines.get([0, 0]) + "|" + this.mines.get([0, 1]) + "|" + this.mines.get([0, 2]) + "|\n" +
+      "|" + this.mines.get([1, 0]) + "|" + this.mines.get([1, 1]) + "|" + this.mines.get([1, 2]) + "|\n" +
+      "|" + this.mines.get([2, 0]) + "|" + this.mines.get([2, 1]) + "|" + this.mines.get([2, 2]) + "|\n";
   }
 
   getBoard () {
