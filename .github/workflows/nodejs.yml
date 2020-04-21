@@ -23,7 +23,7 @@ jobs:
 
     - uses: hallee/eslint-action@master
       with:
-      repo-token: ${{secrets.GITHUB_TOKEN}}
+        repo-token: ${{secrets.GITHUB_TOKEN}}
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
