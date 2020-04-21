@@ -21,9 +21,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: hallee/eslint-action@master
-      with:
-        repo-token: ${{secrets.GITHUB_TOKEN}}
+    - uses: stefanoeb/eslint-action@1.0.2
+        with:
+          files: src/
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
