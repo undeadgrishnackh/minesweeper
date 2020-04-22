@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "fix-security-audit": "npx npm-force-resolutions",
+    "lint": "./node_modules/.bin/eslint -c .eslintrc.json ./src",
+    "fix-security-audit": "npx npm-force-resolutions && npm install",
     "test": "jest --config jest.config.js --rootDir .",
     "test:api": "npx jest -c API/config/newman.jest.js",
     "test:api_build_and_test": "npm run docker_stop || npm run docker_build && npm run docker_run && npm run test:api",
