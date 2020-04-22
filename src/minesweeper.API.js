@@ -1,5 +1,5 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+const { express } = require('express');
+const { bodyParser } = require('body-parser');
 let { Minesweeper } = require('../src/minesweeper');
 
 // Set up the express app
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({
 
 const minesweeperAPI_GET = (req, res) => {
   let minesweeper = new Minesweeper(req.headers.gameid);
-  console.log("GET: gameid = " + req.headers.gameid + " -- Board = " + minesweeper.getBoard());
+  console.log('GET: gameid = ' + req.headers.gameid + ' -- Board = ' + minesweeper.getBoard());
   res.status(200).send({
     gameId: req.headers.gameid,
     status: minesweeper.getGameStatus(),
@@ -22,9 +22,9 @@ const minesweeperAPI_GET = (req, res) => {
 
 const minesweeperAPI_POST = (req, res) => {
   let minesweeper = new Minesweeper(req.body.gameId);
-  console.log("POST: gameid = " + req.body.gameId + " -- Board = " + minesweeper.getBoard());
+  console.log('POST: gameid = ' + req.body.gameId + ' -- Board = ' + minesweeper.getBoard());
   minesweeper.tick(req.body.row, req.body.column);
-  console.log("POST: gameid = " + req.body.gameId + " -- Tick("+ req.body.row + "," + req.body.column + ") -- Board = " + minesweeper.getBoard());
+  console.log('POST: gameid = ' + req.body.gameId + ' -- Tick('+ req.body.row + ',' + req.body.column + ') -- Board = ' + minesweeper.getBoard());
   res.status(minesweeper.getHTTPGameStatus()).send({
     gameId: req.body.gameId,
     status: minesweeper.getGameStatus(),
@@ -41,7 +41,7 @@ app.listen(PORT, HOST, () => {
 
 
 app.get('/api/gameportal/minesweeper/1.0.0/play', (req, res) => {
-    minesweeperAPI_GET(req, res);
+  minesweeperAPI_GET(req, res);
 });
 
 app.post('/api/gameportal/minesweeper/1.0.0/play', (req, res) => {

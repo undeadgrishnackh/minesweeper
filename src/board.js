@@ -1,7 +1,7 @@
 const { matrix } = require('mathjs');
-import GameMocks from '../mocks/Scenario.Mock';
+const { GameMocks } = require('../mocks/Scenario.Mock');
 
-const gamesMocks = GameMocks.GameMocks;
+const gamesMocks = GameMocks;
 
 class Board {
   constructor(gameId, gameStatus) {
@@ -11,23 +11,23 @@ class Board {
       this.mines  = matrix(gamesMocks[gameId].mines).clone();
     } else {
       //TODO: hte board for the moment is hardcoded waiting the first US with a real game not a MOCK!
-      this.board = matrix([[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]);
+      this.board = matrix([[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]);
       this.mines = matrix([[null, null, null], [null, null, null], [null, null, null]]);
     }
   }
 
   getBoardASCII() {
-    return "" +
-      "|" + this.board.get([0, 0]) + "|" + this.board.get([0, 1]) + "|" + this.board.get([0, 2]) + "|\n" +
-      "|" + this.board.get([1, 0]) + "|" + this.board.get([1, 1]) + "|" + this.board.get([1, 2]) + "|\n" +
-      "|" + this.board.get([2, 0]) + "|" + this.board.get([2, 1]) + "|" + this.board.get([2, 2]) + "|\n";
+    return '' +
+      '|' + this.board.get([0, 0]) + '|' + this.board.get([0, 1]) + '|' + this.board.get([0, 2]) + '|\n' +
+      '|' + this.board.get([1, 0]) + '|' + this.board.get([1, 1]) + '|' + this.board.get([1, 2]) + '|\n' +
+      '|' + this.board.get([2, 0]) + '|' + this.board.get([2, 1]) + '|' + this.board.get([2, 2]) + '|\n';
   }
 
   getMinesASCII() {
-    return "" +
-      "|" + this.mines.get([0, 0]) + "|" + this.mines.get([0, 1]) + "|" + this.mines.get([0, 2]) + "|\n" +
-      "|" + this.mines.get([1, 0]) + "|" + this.mines.get([1, 1]) + "|" + this.mines.get([1, 2]) + "|\n" +
-      "|" + this.mines.get([2, 0]) + "|" + this.mines.get([2, 1]) + "|" + this.mines.get([2, 2]) + "|\n";
+    return '' +
+      '|' + this.mines.get([0, 0]) + '|' + this.mines.get([0, 1]) + '|' + this.mines.get([0, 2]) + '|\n' +
+      '|' + this.mines.get([1, 0]) + '|' + this.mines.get([1, 1]) + '|' + this.mines.get([1, 2]) + '|\n' +
+      '|' + this.mines.get([2, 0]) + '|' + this.mines.get([2, 1]) + '|' + this.mines.get([2, 2]) + '|\n';
   }
 
   getBoard () {
