@@ -11,10 +11,10 @@ function GameCreation(mockedScenario) {
   it('Expect the board is created and an empty matrix', () => {
     expect(minesweeper.getBoard()).toEqual(
       [
-        ["X", "X", "X"],
-        ["X", "X", "X"],
-        ["X", "X", "X"]
-      ])
+        ['X', 'X', 'X'],
+        ['X', 'X', 'X'],
+        ['X', 'X', 'X']
+      ]);
   });
   it('Expect the game is waiting for a move', () => {
     expect(minesweeper.getGameStatus()).toEqual('WaitForTheNextMove');
@@ -37,10 +37,10 @@ describe('Game Over Scenario 3x3', () => {
   it('Expect the board shows the bomb location, in JSON', () => {
     expect(minesweeper.getBoard()).toEqual(
       [
-        ["X", "X", "X"],
-        ["X", "B", "X"],
-        ["X", "X", "X"]
-      ])
+        ['X', 'X', 'X'],
+        ['X', 'B', 'X'],
+        ['X', 'X', 'X']
+      ]);
   });
 });
 
@@ -53,9 +53,9 @@ describe('Safe Moves Scenario 3x3', () => {
   it('Expect the cell 1,1 contains 1 bomb around', () => {
     expect(minesweeper.getBoard()).toEqual(
       [
-        ["X", "X", "X"],
-        ["X", "1", "X"],
-        ["X", "X", "X"]
+        ['X', 'X', 'X'],
+        ['X', '1', 'X'],
+        ['X', 'X', 'X']
       ]);
   });
 
@@ -66,9 +66,9 @@ describe('Safe Moves Scenario 3x3', () => {
   it('Expect the cell 0,1 contains 1 bomb around', () => {
     expect(minesweeper.getBoard()).toEqual(
       [
-        ["X", "X", "X"],
-        ["1", "1", "X"],
-        ["X", "X", "X"]
+        ['X', 'X', 'X'],
+        ['1', '1', 'X'],
+        ['X', 'X', 'X']
       ]);
   });
 
@@ -79,9 +79,9 @@ describe('Safe Moves Scenario 3x3', () => {
   it('Expect the cell 2,2 contains 1 bomb around', () => {
     expect(minesweeper.getBoard()).toEqual(
       [
-        ["X", "X", "X"],
-        ["1", "1", "X"],
-        ["X", "X", "1"]
+        ['X', 'X', 'X'],
+        ['1', '1', 'X'],
+        ['X', 'X', '1']
       ]);
   });
 
@@ -92,9 +92,9 @@ describe('Safe Moves Scenario 3x3', () => {
   it('Expect the cell 2,0 contains 1 bomb around', () => {
     expect(minesweeper.getBoard()).toEqual(
       [
-        ["X", "X", "X"],
-        ["1", "1", "X"],
-        ["1", "X", "1"]
+        ['X', 'X', 'X'],
+        ['1', '1', 'X'],
+        ['1', 'X', '1']
       ]);
   });
 
@@ -105,9 +105,9 @@ describe('Safe Moves Scenario 3x3', () => {
   it('Expect the cell 1,2 contains 1 bomb around', () => {
     expect(minesweeper.getBoard()).toEqual(
       [
-        ["X", "X", "X"],
-        ["1", "1", "1"],
-        ["1", "X", "1"]
+        ['X', 'X', 'X'],
+        ['1', '1', '1'],
+        ['1', 'X', '1']
       ]);
   });
 });

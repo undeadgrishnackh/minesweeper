@@ -70,14 +70,14 @@ describe('Multiple games storage scenario', () => {
     gameKeeper = undefined;
     gameKeeper = new GameKeeper();
     gameKeeper.clearDatabase();
-  })
+  });
   it('Create and store game A', () => {
-    let minesweeperA = new Minesweeper('MockGameKeeperArchive_A')
+    let minesweeperA = new Minesweeper('MockGameKeeperArchive_A');
     gameKeeper.storeGame(minesweeperA);
     expect(gameKeeper.size()).toEqual(1);
   });
   it('Create and store game B', () => {
-    let minesweeperB = new Minesweeper('MockGameKeeperArchive_B')
+    let minesweeperB = new Minesweeper('MockGameKeeperArchive_B');
     gameKeeper.storeGame(minesweeperB);
     expect(gameKeeper.size()).toEqual(2);
   });

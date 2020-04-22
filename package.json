@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "lint": "./node_modules/.bin/eslint -c .eslintrc.json ./src",
+    "lint": "./node_modules/.bin/eslint -c .eslintrc.json . --fix",
     "fix-security-audit": "npx npm-force-resolutions && npm install",
     "test": "jest --config jest.config.js --rootDir .",
     "test:api": "npx jest -c API/config/newman.jest.js",
