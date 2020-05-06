@@ -15,7 +15,7 @@
     "watch:CI": "watch -p \"**/*.js\" -c \"npm run test:api_build_and_test\"",
     "start": "node_modules/.bin/babel-node src/minesweeper.API.js",
     "docker_build": "docker build -t undeadgrishnackh/minesweeper .",
-    "docker_run": "docker run -p 5000:5000 -d undeadgrishnackh/minesweeper",
+    "docker_run": "docker run --name minesweeper -p 8080:8080 -d undeadgrishnackh/minesweeper",
     "docker_stop": "docker stop `docker ps | grep -i undeadgrishnackh/minesweeper | awk '{print $1}'`",
     "docker_push": "docker push undeadgrishnackh/minesweeper"
   },
