@@ -32,7 +32,7 @@ const minesweeperAPI_POST = (req, res) => {
   });
 };
 
-const PORT = 5000;
+const PORT = 80;
 const HOST = '0.0.0.0';
 app.listen(PORT, HOST, () => {
   console.log(`server running on port http://${HOST}:${PORT}`);
