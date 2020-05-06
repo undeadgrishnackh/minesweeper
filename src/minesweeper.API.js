@@ -32,12 +32,12 @@ const minesweeperAPI_POST = (req, res) => {
   });
 };
 
-const PORT = 80;
+const PORT = 8080;
 const HOST = '0.0.0.0';
-app.listen(PORT, HOST, () => {
-  console.log(`server running on port http://${HOST}:${PORT}`);
+let server = app.listen(PORT, HOST, () => {
+  let port = server.address().port;
+  console.log(`server running on port http://${HOST}:${PORT} - ` + port);
 });
-
 
 
 app.get('/api/gameportal/minesweeper/1.0.0/play', (req, res) => {
