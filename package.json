@@ -54,7 +54,7 @@
     "core-js": "^3.6.5",
     "express": "^4.17.1",
     "lokijs": "^1.5.8",
-    "mathjs": "^6.6.4"
+    "mathjs": "^6.6.5"
   },
   "resolutions": {
     "lodash": "4.17.15",
