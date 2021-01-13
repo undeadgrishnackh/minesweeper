@@ -42,7 +42,7 @@
     "jest": "^25.4.0",
     "jest-runner-newman": "^1.0.5",
     "lint-staged": "^10.1.7",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "minimatch": "^3.0.4",
     "minimist": "^1.2.5",
     "newman": "^4.6.1",
@@ -57,7 +57,7 @@
     "mathjs": "^7.5.1"
   },
   "resolutions": {
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "minimist": "1.2.3",
     "minimatch": "3.0.2"
   },
