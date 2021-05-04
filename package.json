@@ -54,7 +54,8 @@
     "core-js": "^3.8.1",
     "express": "^4.17.1",
     "lokijs": "^1.5.9",
-    "mathjs": "^7.6.0"
+    "mathjs": "^7.6.0",
+    "node-notifier": ">=8.0.1"
   },
   "resolutions": {
     "lodash": "4.17.19",
