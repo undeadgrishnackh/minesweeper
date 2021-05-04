@@ -55,7 +55,7 @@
     "express": "^4.17.1",
     "lokijs": "^1.5.9",
     "mathjs": "^7.6.0",
-    "node-notifier": ">=8.0.1"
+    "node-notifier": ">=8.0.2"
   },
   "resolutions": {
     "lodash": "4.17.19",
