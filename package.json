@@ -56,7 +56,7 @@
     "lokijs": "^1.5.11",
     "mathjs": "^7.6.0",
     "node-notifier": ">=8.0.2",
-    "underscore": ">=1.13.0-2"
+    "underscore": ">=1.12.1"
   },
   "resolutions": {
     "lodash": "4.17.19",
