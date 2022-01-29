@@ -60,7 +60,7 @@
     "express": "^4.17.1",
     "lokijs": "^1.5.11",
     "mathjs": "^7.6.0",
-    "node-notifier": ">=8.0.2"
+    "node-notifier": ">=10.0.0"
   },
   "resolutions": {
     "lodash": "4.17.19",
