@@ -48,7 +48,7 @@
     "minimatch": "^3.0.4",
     "minimist": "^1.2.5",
     "newman": "^6.0.0",
-    "sanitize-html": ">=2.3.2",
+    "sanitize-html": ">=2.12.1",
     "underscore": ">=1.13.0-2",
     "watch-cli": "~0.2.3",
     "handlebars": ">=4.7.7"
