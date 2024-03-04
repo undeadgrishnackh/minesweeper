@@ -59,7 +59,7 @@
     "core-js": "^3.12.1",
     "express": "^4.17.1",
     "lokijs": "^1.5.11",
-    "mathjs": "^12.2.1",
+    "mathjs": "^12.3.2",
     "node-notifier": ">=8.0.2"
   },
   "resolutions": {
